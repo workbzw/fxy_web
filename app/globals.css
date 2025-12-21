@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --color-primary-50: #EEF6FF;
+  --color-primary-100: #DCEEFF;
+  --color-primary-200: #B8DCFF;
+  --color-primary-300: #89C5FF;
+  --color-primary-400: #58A5FF;
+  --color-primary-500: #3483FA;
+  --color-primary-600: #1D64DF;
+  --color-primary-700: #1551C4;
+  --color-primary-800: #17439F;
+  --color-primary-900: #193A7D;
+  --color-primary-950: #11244C;
+
+  --color-accent-50: #FFFBEB;
+  --color-accent-100: #FEF5D3;
+  --color-accent-200: #FDE88A;
+  --color-accent-300: #FCD851;
+  --color-accent-400: #FBC529;
+  --color-accent-500: #F5A50B;
+  --color-accent-600: #D97D06;
+  --color-accent-700: #B45509;
+  --color-accent-800: #92400E;
+  --color-accent-900: #783510;
+  --color-accent-950: #451A03;
+
+  background-color: #EEF6FF;
+  color: #193A7D;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #EEF6FF 0%, #DCEEFF 30%, #ffffff 70%, #FFFBEB 100%);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:not(.btn-primary) {
+  color: inherit;
+}
+
+/* 自定义工具类 - 确保蓝色渐变生效 */
+.bg-primary-gradient {
+  background: linear-gradient(135deg, #3483FA 0%, #1551C4 100%);
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(135deg, #EEF6FF 0%, #DCEEFF 40%, #FFFFFF 80%);
+}
+
+.shadow-primary-glow {
+  box-shadow: 0 0 25px rgba(52, 131, 250, 0.4);
+}
+
+.shadow-glow-accent {
+  box-shadow: 0 0 30px rgba(52, 131, 250, 0.5), 0 0 60px rgba(251, 197, 41, 0.2);
+}
+
+.shadow-soft {
+  box-shadow: 0 2px 15px rgba(25, 58, 125, 0.06);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 10px 40px rgba(25, 58, 125, 0.08);
+}
+
+.shadow-soft-xl {
+  box-shadow: 0 20px 50px rgba(25, 58, 125, 0.1);
+}
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(52, 131, 250, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 131, 250, 0.08) 1px, transparent 1px);
+}

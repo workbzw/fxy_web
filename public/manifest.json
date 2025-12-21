@@ -1,0 +1,18 @@
+{
+  "name": "智创AI科技 - 专业的AI解决方案提供商",
+  "short_name": "智创AI",
+  "description": "基于大语言模型和深度学习技术，为企业提供智能化AI解决方案",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
+

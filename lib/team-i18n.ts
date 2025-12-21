@@ -1,0 +1,121 @@
+import { Locale } from "./i18n";
+
+export const teamData = {
+  zh: [
+    {
+      id: 1,
+      name: "韩晓伟",
+      englishName: "Alex Han",
+      position: "首席技术官 / CTO",
+      bio: "12年AI研发经验，曾任某头部互联网公司AI中台负责人，从0到1搭建过日调用量10亿+的智能推荐系统",
+      avatar: "/images/team1.jpg",
+      expertise: ["深度学习", "大模型架构", "技术战略"],
+    },
+    {
+      id: 2,
+      name: "乔元",
+      englishName: "Ryan Qiao",
+      position: "算法总监",
+      bio: "8年算法研发经验，曾主导某电商平台搜索推荐算法优化，GMV提升23%，多项核心算法专利持有人",
+      avatar: "/images/team2.jpg",
+      expertise: ["机器学习", "推荐算法", "NLP"],
+    },
+    {
+      id: 3,
+      name: "于老师",
+      englishName: "Emma Yu",
+      position: "产品总监",
+      bio: "10年B端产品经验，曾任某SaaS公司产品VP，主导过金融风控、智能客服等多款营收过亿的AI产品",
+      avatar: "/images/team3.jpg",
+      expertise: ["产品规划", "用户研究", "商业化"],
+    },
+    {
+      id: 4,
+      name: "张铁柱",
+      englishName: "Mike Zhang",
+      position: "技术架构师",
+      bio: "9年架构设计经验，曾负责某出行平台核心系统架构，支撑日订单量5000万+，精通高并发与分布式系统",
+      avatar: "/images/team4.jpg",
+      expertise: ["系统架构", "分布式计算", "MLOps"],
+    },
+    {
+      id: 5,
+      name: "赵旭",
+      englishName: "Lisa Zhao",
+      position: "运营总监",
+      bio: "7年互联网运营经验，曾操盘某内容平台从50万DAU增长至800万，擅长用户增长与精细化运营",
+      avatar: "/images/team5.jpg",
+      expertise: ["用户增长", "内容运营", "品牌营销"],
+    },
+    {
+      id: 6,
+      name: "赵振岩",
+      englishName: "Jack Zhao",
+      position: "商务总监",
+      bio: "11年企业服务销售经验，曾任某云计算公司华北区销售总监，年度业绩连续3年超额完成150%+",
+      avatar: "/images/team6.jpg",
+      expertise: ["大客户销售", "战略合作", "行业拓展"],
+    },
+  ],
+  en: [
+    {
+      id: 1,
+      name: "韩晓伟",
+      englishName: "Alex Han",
+      position: "Chief Technology Officer / CTO",
+      bio: "12 years of AI R&D experience, former AI platform director at a leading internet company, built intelligent recommendation systems from scratch handling 1B+ daily requests",
+      avatar: "/images/team1.jpg",
+      expertise: ["Deep Learning", "LLM Architecture", "Technical Strategy"],
+    },
+    {
+      id: 2,
+      name: "乔元",
+      englishName: "Ryan Qiao",
+      position: "Algorithm Director",
+      bio: "8 years of algorithm R&D experience, led search and recommendation algorithm optimization for an e-commerce platform, increased GMV by 23%, holder of multiple core algorithm patents",
+      avatar: "/images/team2.jpg",
+      expertise: ["Machine Learning", "Recommendation Algorithms", "NLP"],
+    },
+    {
+      id: 3,
+      name: "于老师",
+      englishName: "Emma Yu",
+      position: "Product Director",
+      bio: "10 years of B2B product experience, former Product VP at a SaaS company, led multiple AI products including financial risk control and intelligent customer service with revenue exceeding 100M",
+      avatar: "/images/team3.jpg",
+      expertise: ["Product Planning", "User Research", "Commercialization"],
+    },
+    {
+      id: 4,
+      name: "张铁柱",
+      englishName: "Mike Zhang",
+      position: "Technical Architect",
+      bio: "9 years of architecture design experience, responsible for core system architecture of a ride-sharing platform supporting 50M+ daily orders, expert in high concurrency and distributed systems",
+      avatar: "/images/team4.jpg",
+      expertise: ["System Architecture", "Distributed Computing", "MLOps"],
+    },
+    {
+      id: 5,
+      name: "赵旭",
+      englishName: "Lisa Zhao",
+      position: "Operations Director",
+      bio: "7 years of internet operations experience, scaled a content platform from 500K to 8M DAU, expert in user growth and precision operations",
+      avatar: "/images/team5.jpg",
+      expertise: ["User Growth", "Content Operations", "Brand Marketing"],
+    },
+    {
+      id: 6,
+      name: "赵振岩",
+      englishName: "Jack Zhao",
+      position: "Business Director",
+      bio: "11 years of enterprise sales experience, former North China Sales Director at a cloud computing company, exceeded sales targets by 150%+ for 3 consecutive years",
+      avatar: "/images/team6.jpg",
+      expertise: ["Enterprise Sales", "Strategic Partnerships", "Industry Expansion"],
+    },
+  ],
+};
+
+export function getTeamData(locale: Locale) {
+  return teamData[locale] || teamData.zh;
+}
+
