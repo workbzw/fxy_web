@@ -74,15 +74,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.helloworld.today",
   },
-  icons: {
-    icon: [
-      { url: "/cloud-icon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: [
-      { url: "/cloud-icon.svg", type: "image/svg+xml" },
-    ],
-  },
 };
 
 export default function RootLayout({
@@ -93,8 +84,6 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/cloud-icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="theme-color" content="#1E3A8A" />
       </head>
       <body
