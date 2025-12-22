@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.forEach((route) => {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${route.path ? `#${route.path}` : ""}`,
-        lastModified: currentDate,
+      lastModified: currentDate,
         changeFrequency: route.changeFrequency,
         priority: route.priority,
         alternates: {
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             "zh-CN": `${baseUrl}/zh${route.path ? `#${route.path}` : ""}`,
             "en-US": `${baseUrl}/en${route.path ? `#${route.path}` : ""}`,
           },
-        },
+    },
       });
     });
   });
