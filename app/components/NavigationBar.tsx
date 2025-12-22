@@ -84,15 +84,15 @@ export default function NavigationBar({ locale }: NavigationBarProps) {
           {/* Logo */}
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-2 text-xl font-bold text-[#193A7D] hover:text-[#3483FA] transition group"
+            className="flex items-center gap-2 text-xl font-bold text-[#193A7D] hover:text-[#3483FA] transition group z-10"
             onClick={() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <span className="text-[#3483FA] group-hover:text-[#0EA5E9] transition-colors">
+            <span className="text-[#3483FA] group-hover:text-[#0EA5E9] transition-colors flex-shrink-0">
               <HiOutlineCloud className="w-6 h-6" />
             </span>
-            <span>{t.heroTitle}</span>
+            <span className="whitespace-nowrap block">{t.heroTitle}</span>
           </Link>
 
           {/* Desktop Navigation */}
