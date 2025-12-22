@@ -15,21 +15,22 @@ export function generateStaticParams() {
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = getTranslations(locale);
-  const services = getServicesData(locale);
-  const cases = getCasesData(locale);
-  const techStack = getTechStackData(locale);
-  const team = getTeamData(locale);
-  const news = getNewsData(locale);
-  const about = getAboutData(locale);
-  const contact = getContactData(locale);
+  const validLocale = (locale === "zh" || locale === "en" ? locale : "zh") as Locale;
+  const t = getTranslations(validLocale);
+  const services = getServicesData(validLocale);
+  const cases = getCasesData(validLocale);
+  const techStack = getTechStackData(validLocale);
+  const team = getTeamData(validLocale);
+  const news = getNewsData(validLocale);
+  const about = getAboutData(validLocale);
+  const contact = getContactData(validLocale);
 
   return (
     <HomePageClient
-      locale={locale}
+      locale={validLocale}
       translations={t}
       services={services}
       cases={cases}

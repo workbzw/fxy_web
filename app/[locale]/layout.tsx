@@ -22,10 +22,11 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isZh = locale === "zh";
+  const validLocale = (locale === "zh" || locale === "en" ? locale : "zh") as Locale;
+  const isZh = validLocale === "zh";
 
   return {
     metadataBase: new URL("https://ai-company.com"),
@@ -53,9 +54,9 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  await params; // 确保 params 被解析，虽然这里不需要使用
 
   return (
     <>
