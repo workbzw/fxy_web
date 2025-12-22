@@ -1,12 +1,26 @@
+# Robots.txt for www.helloworld.today
+# Allow all search engines
+
 User-agent: *
 Allow: /
 
 # Disallow admin pages if any
 # Disallow: /admin/
+# Disallow: /api/
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
 
 # Sitemap location
-Sitemap: https://ai-company.com/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
+Sitemap: https://www.helloworld.today/sitemap.xml
 

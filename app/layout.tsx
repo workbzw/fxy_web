@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ai-company.com"),
+  metadataBase: new URL("https://www.helloworld.today"),
   title: {
     default: "风想云科技 - 专业的AI解决方案提供商",
     template: "%s | 风想云科技",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "zh_CN",
-    url: "https://ai-company.com",
+    url: "https://www.helloworld.today",
     title: "风想云科技 - 专业的AI解决方案提供商",
     description:
       "基于大语言模型和深度学习技术，为企业提供智能化AI解决方案，助力企业实现数字化转型与业务增长",
@@ -72,7 +72,16 @@ export const metadata: Metadata = {
     maximumScale: 5,
   },
   alternates: {
-    canonical: "https://ai-company.com",
+    canonical: "https://www.helloworld.today",
+  },
+  icons: {
+    icon: [
+      { url: "/cloud-icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/cloud-icon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
@@ -84,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/cloud-icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="theme-color" content="#1E3A8A" />
       </head>

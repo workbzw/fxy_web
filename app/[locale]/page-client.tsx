@@ -598,6 +598,25 @@ export default function HomePageClient({
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-[#F8FAFC] border-t border-[#DCEEFF] py-6">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <div className="flex flex-col items-center justify-center gap-2 text-sm text-[#71717A]">
+            <p>© {new Date().getFullYear()} {t.heroTitle}. All rights reserved.</p>
+            <p>
+              <a
+                href="https://beian.miit.gov.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#3483FA] transition-colors"
+              >
+                京ICP备2022031958号-5
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
