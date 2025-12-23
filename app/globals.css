@@ -77,3 +77,51 @@ a:not(.btn-primary) {
     linear-gradient(rgba(52, 131, 250, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(52, 131, 250, 0.08) 1px, transparent 1px);
 }
+
+/* Code highlighting styles for blog */
+.hljs {
+  background: #1E293B !important;
+  color: #E2E8F0;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: #7DD3FC;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-literal,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-addition {
+  color: #86EFAC;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #94A3B8;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #FCD34D;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

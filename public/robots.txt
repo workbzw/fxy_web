@@ -3,10 +3,14 @@
 
 User-agent: *
 Allow: /
+Allow: /zh/
+Allow: /en/
+Allow: /zh/blog/
+Allow: /en/blog/
 
-# Disallow admin pages if any
-# Disallow: /admin/
-# Disallow: /api/
+# Disallow admin and API pages
+Disallow: /admin/
+Disallow: /api/
 
 # Specific rules for major search engines
 User-agent: Googlebot
@@ -21,6 +25,13 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 0
 
+User-agent: Sogou
+Allow: /
+Crawl-delay: 1
+
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 1
+
 # Sitemap location
 Sitemap: https://www.helloworld.today/sitemap.xml
-

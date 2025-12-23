@@ -399,18 +399,27 @@ export default function HomePageClient({
       <Section id="news" title={t.sectionNews} subtitle={t.sectionNewsSubtitle}>
         <div className="grid gap-4 md:grid-cols-2">
           {news.map((newsItem) => (
-            <Card key={newsItem.id} className="flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-xs">
-                <span className="rounded-full bg-gradient-to-r from-[#3483FA] to-[#1551C4] px-3 py-1 text-white font-medium">
-                  {newsItem.category}
+            <Link
+              key={newsItem.id}
+              href={`/${locale}/blog/${newsItem.slug || `news-${newsItem.id}`}`}
+              className="block"
+            >
+              <Card className="flex flex-col gap-2 cursor-pointer group">
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="rounded-full bg-gradient-to-r from-[#3483FA] to-[#1551C4] px-3 py-1 text-white font-medium">
+                    {newsItem.category}
+                  </span>
+                  <span className="text-[#71717A]">{newsItem.date}</span>
+                </div>
+                <h3 className="text-base font-bold text-[#193A7D] group-hover:text-[#3483FA] transition-colors">
+                  {newsItem.title}
+                </h3>
+                <p className="text-sm text-[#71717A]">{newsItem.summary}</p>
+                <span className="text-sm text-[#3483FA] font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {locale === "zh" ? "阅读全文" : "Read More"} <FaArrowRight className="text-xs" />
                 </span>
-                <span className="text-[#71717A]">{newsItem.date}</span>
-              </div>
-              <h3 className="text-base font-bold text-[#193A7D]">
-                {newsItem.title}
-              </h3>
-              <p className="text-sm text-[#71717A]">{newsItem.summary}</p>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
       </Section>

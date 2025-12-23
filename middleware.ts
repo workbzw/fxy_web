@@ -5,9 +5,10 @@ import { locales, defaultLocale } from "./lib/i18n";
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
-  // 如果是 API 路由或静态文件，直接通过
+  // 如果是 API 路由、静态文件或管理后台，直接通过
   if (
     pathname.startsWith("/api/") ||
+    pathname.startsWith("/admin") ||
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/favicon") ||
     pathname.startsWith("/file.svg") ||

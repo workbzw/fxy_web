@@ -1,121 +1,33 @@
 import { Locale } from "./i18n";
-
-export const newsData = {
-  zh: [
-    {
-      id: 1,
-      title: "公司成功完成A轮融资，加速AI技术研发",
-      date: "2024-01-15",
-      category: "公司动态",
-      summary: "我们很高兴地宣布，公司已成功完成数千万元A轮融资，本轮融资将主要用于核心技术研发、团队建设和市场拓展。",
-      image: "/images/news1.jpg",
-      content: "详细内容...",
-    },
-    {
-      id: 2,
-      title: "与某知名企业达成战略合作，共建AI创新实验室",
-      date: "2024-02-20",
-      category: "合作伙伴",
-      summary: "公司与行业领军企业签署战略合作协议，共同建立AI创新实验室，探索AI技术在行业的深度应用。",
-      image: "/images/news2.jpg",
-      content: "详细内容...",
-    },
-    {
-      id: 3,
-      title: "智能客服解决方案荣获行业创新大奖",
-      date: "2024-03-10",
-      category: "荣誉奖项",
-      summary: "公司自主研发的智能客服系统在全国AI应用创新大赛中脱颖而出，荣获一等奖。",
-      image: "/images/news3.jpg",
-      content: "详细内容...",
-    },
-    {
-      id: 4,
-      title: "技术团队在国际顶级会议发表论文",
-      date: "2024-04-05",
-      category: "技术成果",
-      summary: "公司研究团队的论文被NeurIPS 2024接收，展示了在多模态学习领域的最新研究成果。",
-      image: "/images/news4.jpg",
-      content: "详细内容...",
-    },
-    {
-      id: 5,
-      title: "开设AI技术培训课程，助力人才培养",
-      date: "2024-05-12",
-      category: "社会责任",
-      summary: "公司启动AI人才培养计划，面向高校学生和行业从业者开放技术培训课程。",
-      image: "/images/news5.jpg",
-      content: "详细内容...",
-    },
-    {
-      id: 6,
-      title: "新版AI平台正式上线，功能全面升级",
-      date: "2024-06-18",
-      category: "产品发布",
-      summary: "公司新一代AI开发平台正式上线，提供更强大的模型训练、部署和管理能力。",
-      image: "/images/news6.jpg",
-      content: "详细内容...",
-    },
-  ],
-  en: [
-    {
-      id: 1,
-      title: "Company Successfully Completes Series A Funding, Accelerates AI Technology R&D",
-      date: "2024-01-15",
-      category: "Company News",
-      summary: "We are pleased to announce that the company has successfully completed tens of millions of yuan in Series A funding, which will primarily be used for core technology R&D, team building, and market expansion.",
-      image: "/images/news1.jpg",
-      content: "Detailed content...",
-    },
-    {
-      id: 2,
-      title: "Establishes Strategic Partnership with Renowned Enterprise, Jointly Builds AI Innovation Lab",
-      date: "2024-02-20",
-      category: "Partnership",
-      summary: "The company signed a strategic cooperation agreement with an industry-leading enterprise to jointly establish an AI innovation lab and explore the deep application of AI technology in the industry.",
-      image: "/images/news2.jpg",
-      content: "Detailed content...",
-    },
-    {
-      id: 3,
-      title: "Intelligent Customer Service Solution Wins Industry Innovation Award",
-      date: "2024-03-10",
-      category: "Honors & Awards",
-      summary: "The company's independently developed intelligent customer service system stood out in the National AI Application Innovation Competition and won the first prize.",
-      image: "/images/news3.jpg",
-      content: "Detailed content...",
-    },
-    {
-      id: 4,
-      title: "Technical Team Publishes Paper at International Top Conference",
-      date: "2024-04-05",
-      category: "Technical Achievements",
-      summary: "The company's research team's paper was accepted by NeurIPS 2024, showcasing the latest research achievements in the field of multimodal learning.",
-      image: "/images/news4.jpg",
-      content: "Detailed content...",
-    },
-    {
-      id: 5,
-      title: "Launches AI Technology Training Courses to Foster Talent",
-      date: "2024-05-12",
-      category: "Social Responsibility",
-      summary: "The company launched an AI talent training program, offering technical training courses to university students and industry professionals.",
-      image: "/images/news5.jpg",
-      content: "Detailed content...",
-    },
-    {
-      id: 6,
-      title: "New Version of AI Platform Officially Launched, Functions Fully Upgraded",
-      date: "2024-06-18",
-      category: "Product Release",
-      summary: "The company's new generation AI development platform is officially launched, providing more powerful model training, deployment, and management capabilities.",
-      image: "/images/news6.jpg",
-      content: "Detailed content...",
-    },
-  ],
-};
+import { getPublishedBlogs, getLocalizedBlog } from "./blog";
 
 export function getNewsData(locale: Locale) {
-  return newsData[locale] || newsData.zh;
+  const blogs = getPublishedBlogs(locale);
+  
+  // 获取置顶文章（最多2个）
+  const featuredBlogs = blogs
+    .filter((blog) => blog.featured)
+    .slice(0, 2);
+  
+  // 获取非置顶的最新文章
+  const regularBlogs = blogs
+    .filter((blog) => !blog.featured)
+    .slice(0, 4);
+  
+  // 合并：先显示置顶，再显示最新（最多6个）
+  const displayBlogs = [...featuredBlogs, ...regularBlogs].slice(0, 6);
+  
+  // 转换为新闻列表格式
+  return displayBlogs.map((blog, index) => {
+    const localized = getLocalizedBlog(blog, locale);
+    return {
+      id: index + 1,
+      slug: blog.slug,
+      title: localized.title,
+      date: blog.date,
+      category: localized.category,
+      summary: localized.summary,
+      featured: blog.featured || false,
+    };
+  });
 }
-
