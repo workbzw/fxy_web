@@ -219,3 +219,13 @@ MIT
 ---
 
 **技术支持**: 如有问题，欢迎联系我们的技术团队。
+
+
+
+
+
+
+
+
+DO_GIT_PULL=1 /opt/nextjs/rebuild_fxy.sh
+scp /Users/teejoo/workspace/next/fxy/.env.local root@59.110.34.226:/opt/nextjs/fxy_web/.env.local

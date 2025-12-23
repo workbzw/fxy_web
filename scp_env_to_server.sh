@@ -1,0 +1,1 @@
+scp /Users/teejoo/workspace/next/fxy/.env.local root@59.110.34.226:/opt/nextjs/fxy_web/.env.local

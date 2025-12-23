@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     mainRoutes.forEach((route) => {
       sitemapEntries.push({
         url: `${baseUrl}/${locale}${route.path}`,
-        lastModified: currentDate,
+      lastModified: currentDate,
         changeFrequency: route.changeFrequency,
         priority: route.priority,
         alternates: {
