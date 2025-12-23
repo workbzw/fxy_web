@@ -123,3 +123,51 @@ A: 在企业微信管理后台的"应用管理"中，可以查看和配置应用
 
 更多错误码请参考 [企业微信官方文档](https://developer.work.weixin.qq.com/document/path/91039)
 
+## 7. 回调URL验证配置
+
+如需配置企业微信回调URL（用于接收消息和事件），需要额外配置以下环境变量：
+
+### 步骤一：在企业微信后台配置回调
+
+1. 进入 **"应用管理"** → 选择你的应用
+2. 进入 **"接收消息"** 或 **"回调配置"**
+3. 设置 URL：`https://你的域名/api/cwx/response`
+4. 点击 **"随机生成"** 获取 Token 和 EncodingAESKey
+5. 保存这些配置
+
+### 步骤二：配置环境变量
+
+在 `.env.local` 中添加：
+
+```env
+# 企业微信回调配置
+WECHAT_CALLBACK_TOKEN=你的Token
+WECHAT_ENCODING_AES_KEY=你的EncodingAESKey（43位）
+```
+
+**示例：**
+```env
+WECHAT_CALLBACK_TOKEN=abc123XYZ
+WECHAT_ENCODING_AES_KEY=abcdefghijklmnopqrstuvwxyz0123456789ABCDEF
+```
+
+### 步骤三：验证URL
+
+配置完成后，在企业微信后台点击 **"保存"**，企业微信会向你的URL发送验证请求。
+如果验证成功，配置将被保存。
+
+### 回调API说明
+
+**请求方式：** GET（验证URL）/ POST（接收消息）  
+**请求地址：** `/api/cwx/response`
+
+**验证流程（GET请求）：**
+1. 企业微信发送 `msg_signature`、`timestamp`、`nonce`、`echostr` 参数
+2. 服务端计算签名验证请求合法性
+3. 解密 `echostr` 并返回明文
+
+**接收消息（POST请求）：**
+- 预留接口，可扩展处理各种消息和事件
+
+**参考文档：** [企业微信验证URL有效性](https://developer.work.weixin.qq.com/document/10514)
+
