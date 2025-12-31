@@ -26,11 +26,12 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // 如果路径没有语言代码，重定向到默认语言
+  // 如果路径没有语言代码，重定向到默认语言（使用 301 永久重定向）
   if (!pathnameHasLocale) {
     const locale = defaultLocale;
     const newUrl = new URL(`/${locale}${pathname === "/" ? "" : pathname}`, request.url);
-    return NextResponse.redirect(newUrl);
+    // 使用 301 永久重定向，告诉搜索引擎这是永久性的
+    return NextResponse.redirect(newUrl, { status: 301 });
   }
 
   return NextResponse.next();
